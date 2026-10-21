@@ -36,7 +36,7 @@ fun VistaExplicacion(viewModel: ContadorViewModel) {
         Text("• Sobrevive a rotaciones de pantalla.")
         Text("• La vista solo muestra datos, no tiene lógica.")
         Text("• Varias vistas pueden compartir el mismo estado.")
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(24.dp))
         Card(Modifier.fillMaxWidth()) {
             Text(
                 "Valor actual desde el ViewModel: $contador",
