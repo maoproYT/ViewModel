@@ -20,3 +20,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@Composable
+fun VistaContador(viewModel: ContadorViewModel) {
+    val contador by viewModel.contador.collectAsState()
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text("Contador")
+        Spacer(Modifier.height(16.dp))
+        Text("$contador", fontSize = 72.sp)
+        Spacer(Modifier.height(24.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Button(onClick = { viewModel.decrementar() }) { Text("−") }
+            Button(onClick = { viewModel.incrementar() }) { Text("+") }
+        }
+        Spacer(Modifier.height(12.dp))
+        OutlinedButton(onClick = { viewModel.reiniciar() }) { Text("Reiniciar") }
+        Spacer(Modifier.height(24.dp))
+        Text("Prueba: sube el contador y rota el celular. El valor se conserva.")
+    }
+}
